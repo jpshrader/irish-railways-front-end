@@ -1,0 +1,25 @@
+.header-card {
+    text-align: center;
+    margin: 2%;
+}
+
+.header-button-tray > a {
+    margin-left: 2%;
+}
+
+.mat-display-2 {
+    margin-bottom: 2%;
+}
+
+.tab-card {
+    margin:2%;
+}
+
+.tab-label {
+    text-align: center;
+    padding: 1%;
+}
+
+.title-icon {
+    margin-top: -2px;
+}
