@@ -19,4 +19,5 @@ steps:
     npm install -g @angular/cli
     yarn install
     yarn build --prod
-  displayName: 'install and build'
+    yarn test
+  displayName: 'install, build, and test'
