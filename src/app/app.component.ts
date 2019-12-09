@@ -1,7 +1,6 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { TrainService } from './services/trains/trainService';
 import { Train } from './services/trains/train';
-import { CompileShallowModuleMetadata } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +18,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.trains = this.trainService.getTrains();
-
-    this.isLoading = false;
+    this.trains = this.trainService.getTrains(() => this.isLoading = false);
   }
 }
