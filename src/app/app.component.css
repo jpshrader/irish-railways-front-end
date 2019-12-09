@@ -3,6 +3,10 @@
     margin: 2%;
 }
 
+.header-button-tray {
+    margin-left: -2.5%;
+}
+
 .header-button-tray > a {
     margin-left: 2%;
 }
