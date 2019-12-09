@@ -11,7 +11,7 @@ export class ApiClient {
     'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept'
   };
 
-  getResource<T>(url): T {
+  getResource<T>(url: string): T {
     let result: T;
     this.http.get<T>(url, { headers: this.requestHeaders })
       .subscribe(
@@ -22,7 +22,7 @@ export class ApiClient {
     return result;
   }
 
-  getResourceList<T>(url): T[] {
+  getResourceList<T>(url: string): T[] {
     const result: T[] = [];
     this.http.get<ResourceList<T>>(url, { headers: this.requestHeaders })
       .subscribe(
