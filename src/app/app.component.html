@@ -23,7 +23,7 @@
       <mat-icon matTooltip="Trains">directions_transit</mat-icon>
     </ng-template>
 
-    <div *ngIf="isLoading" class="loading-state">
+    <div *ngIf="!trains.isLoaded" class="loading-state">
       <mat-spinner
         mode="indeterminate"
         color="primary"
@@ -32,15 +32,15 @@
       </mat-spinner>
     </div>
 
-    <div *ngIf="!isLoading && (!trains || trains.length === 0)">
+    <div *ngIf="trains.isLoaded && (!trains.resources || trains.resources.length === 0)">
       <div class="empty-train-state">
         <mat-icon style="font-size: 150px; height:150px; width:150px">sentiment_very_dissatisfied</mat-icon>
         <p class="mat-h1" style="margin-bottom: 0px; padding-bottom: 1%">There are no trains running at the moment</p>
       </div>
     </div>
 
-    <mat-accordion *ngIf="trains && trains.length > 0" class="train-accordion">
-      <mat-expansion-panel *ngFor='let train of trains'>
+    <mat-accordion *ngIf="trains.resources && trains.resources.length > 0" class="train-accordion">
+      <mat-expansion-panel *ngFor='let train of trains.resources'>
         <mat-expansion-panel-header>
           <mat-panel-title>
             <b>{{ train.code }}</b>

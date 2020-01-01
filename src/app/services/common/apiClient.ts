@@ -22,12 +22,19 @@ export class ApiClient {
     return result;
   }
 
-  getResourceList<T>(url: string): T[] {
-    const result: T[] = [];
+  getResourceList<T>(url: string): ResourceList<T> {
+    const result: ResourceList<T> = new ResourceList<T>();
     this.http.get<ResourceList<T>>(url, { headers: this.requestHeaders })
       .subscribe(
-        response => result.push(...response.resources),
-        error => console.log(error)
+        response => {
+          result.resources = response.resources;
+          result.links = response.links;
+        },
+        error => {
+          result.isLoaded = true;
+          console.log(error);
+        },
+        () => result.isLoaded = true
       );
 
     return result;

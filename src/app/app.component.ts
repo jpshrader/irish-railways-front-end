@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { TrainService } from './services/trains/trainService';
 import { Train } from './services/trains/train';
+import { ResourceList } from './services/common/resourceList';
 
 @Component({
   selector: 'app-root',
@@ -9,15 +10,11 @@ import { Train } from './services/trains/train';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  isLoading = true;
+  trains: ResourceList<Train>;
 
-  trains: Train[];
-
-  constructor(@Inject(TrainService) private trainService: TrainService) {
-    this.isLoading = true;
-  }
+  constructor(@Inject(TrainService) private trainService: TrainService) {}
 
   ngOnInit() {
-    this.trains = this.trainService.getTrains(() => this.isLoading = false);
+    this.trains = this.trainService.getTrains();
   }
 }
