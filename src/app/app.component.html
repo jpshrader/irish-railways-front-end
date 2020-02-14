@@ -1,68 +1,71 @@
 <mat-card class="header-card">
-  <h3 class="mat-display-2">Cá bhfuil mo thraein?</h3>
-  <p><a class="mat-subheading-1" href="https://youtu.be/xg4jjxCJyYM?t=33" target="_blank">https://youtu.be/xg4jjxCJyYM?t=33</a></p>
+	<h3 class="mat-display-2">Cá bhfuil mo thraein?</h3>
+	<p><a class="mat-subheading-1" href="https://youtu.be/xg4jjxCJyYM?t=33" target="_blank">https://youtu.be/xg4jjxCJyYM?t=33</a></p>
 
-  <div class="header-button-tray">
-    <a mat-raised-button matTooltip="Github Repo" color="primary" href="https://github.com/jpshrader/irish-railways-front-end" target="_blank">
-      <mat-icon>code</mat-icon>
-    </a>
+	<div class="header-button-tray">
+		<a mat-raised-button matTooltip="Github Repo" color="primary" href="https://github.com/jpshrader/irish-railways-front-end" target="_blank">
+			<mat-icon>code</mat-icon>
+		</a>
 
-    <a mat-raised-button matTooltip="LinkedIn" href="https://www.linkedin.com/in/jackshrader/" target="_blank">
-      <mat-icon>work</mat-icon>
-    </a>
+		<a mat-raised-button matTooltip="LinkedIn" href="https://www.linkedin.com/in/jackshrader/" target="_blank">
+			<mat-icon>work</mat-icon>
+		</a>
 
-    <a mat-raised-button matTooltip="Donate (if ye like)" color="accent" href="https://www.paypal.me/johnshrader" target="_blank">
-      <mat-icon>euro_symbol</mat-icon>
-    </a>
-  </div>
+		<a mat-raised-button matTooltip="Donate (if ye like)" color="accent" href="https://www.paypal.me/johnshrader" target="_blank">
+			<mat-icon>euro_symbol</mat-icon>
+		</a>
+	</div>
 </mat-card>
 
 <mat-tab-group class="tab-group mat-elevation-z4">
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon matTooltip="Trains">directions_transit</mat-icon>
-    </ng-template>
+	<mat-tab>
+		<ng-template mat-tab-label>
+			<mat-icon matTooltip="Trains">directions_transit</mat-icon>
+		</ng-template>
 
-    <div *ngIf="!trains.isLoaded" class="loading-state">
-      <mat-spinner
-        mode="indeterminate"
-        color="primary"
-        style="margin:0 auto"
-      >
-      </mat-spinner>
-    </div>
+		<div *ngIf="!trains.isLoaded" class="loading-state">
+			<mat-spinner
+				mode="indeterminate"
+				color="primary"
+				style="margin:0 auto"
+			>
+			</mat-spinner>
+		</div>
 
-    <div *ngIf="trains.isLoaded && (!trains.resources || trains.resources.length === 0)">
-      <div class="empty-train-state">
-        <mat-icon style="font-size: 150px; height:150px; width:150px">sentiment_very_dissatisfied</mat-icon>
-        <p class="mat-h1" style="margin-bottom: 0px; padding-bottom: 1%">There are no trains running at the moment</p>
-      </div>
-    </div>
+		<div *ngIf="trains.isLoaded && (!trains.resources || trains.resources.length === 0)">
+			<div class="empty-train-state">
+				<mat-icon style="font-size: 150px; height:150px; width:150px">sentiment_very_dissatisfied</mat-icon>
+				<p class="mat-h1" style="margin-bottom: 0px; padding-bottom: 1%">There are no trains running at the moment</p>
+			</div>
+		</div>
 
-    <mat-accordion *ngIf="trains.resources && trains.resources.length > 0" class="train-accordion">
-      <mat-expansion-panel *ngFor='let train of trains.resources'>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            <b>{{ train.code }}</b>
-          </mat-panel-title>
-          <mat-panel-description>
-            <span><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b>  {{train.message }}</span>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <mat-panel-description>
-          <mat-list>
-            <mat-list-item>{{ train.date }}</mat-list-item>
-            <mat-list-item>{{ train.message }}</mat-list-item>
-          </mat-list>
-        </mat-panel-description>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </mat-tab>
+		<mat-accordion *ngIf="trains.resources && trains.resources.length > 0" class="train-accordion">
+			<mat-expansion-panel *ngFor='let train of trains.resources'>
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						<b>{{ train.code }}</b>
+					</mat-panel-title>
+					<mat-panel-description>
+						<span><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
+					</mat-panel-description>
+				</mat-expansion-panel-header>
+				<mat-panel-description>
+					<mat-list style="flex:inherit;">
+						<mat-list-item><b style="margin-right: 5px;">Latest: </b>{{ train.message }}</mat-list-item>
+						<mat-list-item><b style="margin-right: 5px;">Status: </b>{{ train.status }}</mat-list-item>
+						<mat-list-item><b style="margin-right: 5px;">Origin: </b>{{ train.origin }}</mat-list-item>
+						<mat-list-item><b style="margin-right: 5px;">Destination: </b>{{ train.destination }}</mat-list-item>
+						<mat-list-item><button mat-raised-button (click)="openScheduleDialog(train)">View Schedule</button></mat-list-item>
+					</mat-list>
+				</mat-panel-description>
+			</mat-expansion-panel>
+		</mat-accordion>
+	</mat-tab>
 
-  <mat-tab>
-      <ng-template mat-tab-label>
-          <mat-icon matTooltip="Stations">store</mat-icon>
-      </ng-template>
-      Content 2
-    </mat-tab>
+	<mat-tab>
+			<ng-template mat-tab-label>
+					<mat-icon matTooltip="Stations">store</mat-icon>
+			</ng-template>
+			Content 2
+		</mat-tab>
 </mat-tab-group>
