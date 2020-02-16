@@ -1,20 +1,18 @@
-import { Component, Inject, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { TrainService } from './services/trains/trainService';
 import { Train } from './services/trains/train';
 import { ResourceList } from './services/common/resourceList';
-
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
-export interface DialogData {
-	animal: string;
-	name: string;
-}
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
 	selector: 'dialog-content-example-dialog',
 	templateUrl: 'dialog-content-example-dialog.html',
 })
-export class DialogContentExampleDialog {}
+export class DialogContentExampleDialog{
+	constructor(
+		public dialogRef: MatDialogRef<DialogContentExampleDialog>,
+		@Inject(MAT_DIALOG_DATA) public train: Train) {}
+}
 
 @Component({
 	selector: 'app-root',
@@ -25,17 +23,17 @@ export class DialogContentExampleDialog {}
 export class AppComponent implements OnInit {
 	trains: ResourceList<Train>;
 
-	constructor(@Inject(TrainService) private trainService: TrainService, public dialog: MatDialog) {}
+	constructor(
+		@Inject(TrainService) private trainService: TrainService,
+		public dialog: MatDialog) {}
 
 	ngOnInit() {
 		this.trains = this.trainService.getTrains();
 	}
 
 	openScheduleDialog(train: Train) {
-		const dialogRef = this.dialog.open(DialogContentExampleDialog);
+		const dialogRef = this.dialog.open(DialogContentExampleDialog, { data: train });
 
-		dialogRef.afterClosed().subscribe(result => {
-			console.log(`Dialog result: ${result}`);
-		});
+		dialogRef.afterClosed().subscribe(result => {});
 	}
 }

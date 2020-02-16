@@ -20,6 +20,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TrainMovementService } from './services/trainMovements/trainMovementService';
 
 @NgModule({
 	declarations: [
@@ -49,7 +50,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 	],
 	providers: [
 		ApiClient,
-		TrainService
+		TrainService,
+		TrainMovementService
 	],
 	bootstrap: [
 		AppComponent

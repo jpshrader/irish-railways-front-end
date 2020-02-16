@@ -1,3 +1,5 @@
+import { TrainMovement } from '../trainMovements/trainMovement';
+
 export interface Train {
     code: string;
     status: string;
@@ -7,5 +9,6 @@ export interface Train {
     origin: string;
     destination: string;
     message: string;
-    direction: string;
+		direction: string;
+		movements: TrainMovement[];
 }
