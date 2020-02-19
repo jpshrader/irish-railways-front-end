@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent, TrainScheduleDialogComponent } from './app.component';
+import { AppComponent, TrainScheduleDialogComponent, StationDetailsComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TrainService } from './services/trains/trainService';
 import { ApiClient } from './services/common/apiClient';
@@ -21,14 +21,18 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TrainMovementService } from './services/trainMovements/trainMovementService';
+import { StationService } from './services/stations/stationService';
+import { StationDetailsService } from './services/stationDetails/stationDetailsService';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		TrainScheduleDialogComponent
+		TrainScheduleDialogComponent,
+		StationDetailsComponent
 	],
 	entryComponents: [
-		TrainScheduleDialogComponent
+		TrainScheduleDialogComponent,
+		StationDetailsComponent
 	],
 	imports: [
 		BrowserModule,
@@ -51,7 +55,9 @@ import { TrainMovementService } from './services/trainMovements/trainMovementSer
 	providers: [
 		ApiClient,
 		TrainService,
-		TrainMovementService
+		TrainMovementService,
+		StationService,
+		StationDetailsService
 	],
 	bootstrap: [
 		AppComponent

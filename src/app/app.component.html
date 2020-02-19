@@ -70,6 +70,39 @@
 			<ng-template mat-tab-label>
 					<mat-icon matTooltip="Stations">store</mat-icon>
 			</ng-template>
-			Content 2
+
+			<div *ngIf="!stations.isLoaded" class="loading-state">
+				<mat-spinner
+					mode="indeterminate"
+					color="primary"
+					style="margin:0 auto"
+				>
+				</mat-spinner>
+			</div>
+
+			<div *ngIf="stations.isLoaded && (!stations.resources || stations.resources.length === 0)">
+				<div class="empty-train-state">
+					<mat-icon style="font-size: 150px; height:150px; width:150px">sentiment_very_dissatisfied</mat-icon>
+					<p class="mat-h1" style="margin-bottom: 0px; padding-bottom: 1%">There are no stations available at the moment</p>
+				</div>
+			</div>
+
+			<mat-accordion *ngIf="stations.resources && stations.resources.length > 0" class="train-accordion">
+				<mat-expansion-panel *ngFor='let station of stations.resources'>
+					<mat-expansion-panel-header>
+						<mat-panel-title>
+							<span><b>{{ station.name }}</b></span>
+						</mat-panel-title>
+					</mat-expansion-panel-header>
+					<mat-panel-description>
+						<mat-list style="flex:inherit;">
+							<mat-list-item><b style="margin-right: 5px;">Id: </b>{{ station.id }}</mat-list-item>
+							<mat-list-item><button mat-raised-button (click)="openStationDialog(station)">View Schedule</button></mat-list-item>
+						</mat-list>
+					</mat-panel-description>
+				</mat-expansion-panel>
+			</mat-accordion>
+
+
 		</mat-tab>
 </mat-tab-group>

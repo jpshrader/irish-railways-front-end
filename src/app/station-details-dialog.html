@@ -1,0 +1,37 @@
+<h2 mat-dialog-title>{{ componentData.station.name }} Schedule</h2>
+<mat-dialog-content class="mat-typography">
+	<div *ngIf="stationDetails && !stationDetails.isLoaded" class="loading-state">
+		<mat-spinner
+			mode="indeterminate"
+			color="primary"
+			style="margin:0 auto"
+		>
+		</mat-spinner>
+	</div>
+
+	<mat-accordion *ngIf="stationDetails" class="train-accordion">
+		<mat-expansion-panel *ngFor='let detail of stationDetails.resources'>
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					<span><b>{{ detail.origin }} </b>&#8594; <b>{{ detail.destination }}</b></span>
+				</mat-panel-title>
+				<mat-panel-description>
+					<b>Due In: {{detail.dueIn }} minutes</b>
+				</mat-panel-description>
+			</mat-expansion-panel-header>
+			<mat-panel-description>
+				<mat-list style="flex:inherit;">
+					<mat-list-item><b style="margin-right: 5px;">Date: </b>{{ detail.trainDate }}</mat-list-item>
+					<mat-list-item><b style="margin-right: 5px;">Departing: </b>{{ detail.originTime }}</mat-list-item>
+					<mat-list-item><b style="margin-right: 5px;">Arriving: </b>{{ detail.destinationTime }}</mat-list-item>
+					<mat-list-item><b style="margin-right: 5px;">Origin: </b>{{ detail.origin }}</mat-list-item>
+					<mat-list-item><b style="margin-right: 5px;">Destination: </b>{{ detail.destination }}</mat-list-item>
+					<mat-list-item><b style="margin-right: 5px;">Late (minutes): </b>{{ detail.late }}</mat-list-item>
+				</mat-list>
+			</mat-panel-description>
+		</mat-expansion-panel>
+	</mat-accordion>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
