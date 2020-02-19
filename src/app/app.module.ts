@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent, DialogContentExampleDialog } from './app.component';
+import { AppComponent, TrainScheduleDialogComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TrainService } from './services/trains/trainService';
 import { ApiClient } from './services/common/apiClient';
@@ -25,10 +25,10 @@ import { TrainMovementService } from './services/trainMovements/trainMovementSer
 @NgModule({
 	declarations: [
 		AppComponent,
-		DialogContentExampleDialog
+		TrainScheduleDialogComponent
 	],
 	entryComponents: [
-		DialogContentExampleDialog
+		TrainScheduleDialogComponent
 	],
 	imports: [
 		BrowserModule,

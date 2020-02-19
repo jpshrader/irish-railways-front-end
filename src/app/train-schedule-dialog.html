@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>{{ componentData.train.code }} Schedule ({{ componentData.train.origin }} &#8594; {{ componentData.train.destination }})</h2>
+<mat-dialog-content class="mat-typography">
+	<div *ngIf="trainMovements && !trainMovements.isLoaded" class="loading-state">
+		<mat-spinner
+			mode="indeterminate"
+			color="primary"
+			style="margin:0 auto"
+		>
+		</mat-spinner>
+	</div>
+
+	<mat-accordion *ngIf="trainMovements" class="train-accordion">
+		<mat-expansion-panel *ngFor='let movement of getTrainMovements(); first as isFirst; last as isLast'>
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					<mat-icon *ngIf="isFirst || isLast" color="{{ getTrainStopColour(movement) }}" style="margin-right: 5px;">place</mat-icon>
+					<mat-icon *ngIf="!isFirst && !isLast"color="{{ getTrainStopColour(movement) }}" style="margin-right: 5px;">{{ getLocationIcon(movement) }}</mat-icon>
+					<b>{{ movement.locationFullName }}</b>
+				</mat-panel-title>
+				<mat-panel-description>
+				</mat-panel-description>
+			</mat-expansion-panel-header>
+			<mat-panel-description>
+				<mat-list style="flex:inherit;">
+					<mat-list-item><b style="margin-right: 5px;">Derparting: </b>{{ movement.scheduledDeparture }}</mat-list-item>
+					<mat-list-item><b style="margin-right: 5px;">Arriving: </b>{{ movement.scheduledArrival }}</mat-list-item>
+				</mat-list>
+			</mat-panel-description>
+		</mat-expansion-panel>
+	</mat-accordion>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

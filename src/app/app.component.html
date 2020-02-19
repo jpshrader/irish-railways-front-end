@@ -43,18 +43,22 @@
 			<mat-expansion-panel *ngFor='let train of trains.resources'>
 				<mat-expansion-panel-header>
 					<mat-panel-title>
-						<b>{{ train.code }}</b>
+						<span *ngIf="train.minutesLate == 0" matTooltip="On schedule"><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
+						<span *ngIf="train.minutesLate > 0" matTooltip="{{ train.minutesLate }} minutes late" style="color: #ffab40;" ><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
+						<span *ngIf="train.minutesLate < 0" matTooltip="{{ getAbsoluteValue(train.minutesLate) }} minutes early" style="color: #4caf50;"><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
 					</mat-panel-title>
 					<mat-panel-description>
-						<span><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
+						<b>{{ train.message }}</b>
 					</mat-panel-description>
 				</mat-expansion-panel-header>
 				<mat-panel-description>
 					<mat-list style="flex:inherit;">
+						<mat-list-item><b style="margin-right: 5px;">Code: </b>{{ train.code }}</mat-list-item>
 						<mat-list-item><b style="margin-right: 5px;">Latest: </b>{{ train.message }}</mat-list-item>
 						<mat-list-item><b style="margin-right: 5px;">Status: </b>{{ train.status }}</mat-list-item>
 						<mat-list-item><b style="margin-right: 5px;">Origin: </b>{{ train.origin }}</mat-list-item>
 						<mat-list-item><b style="margin-right: 5px;">Destination: </b>{{ train.destination }}</mat-list-item>
+						<mat-list-item *ngIf="train.minutesLate != 0"><b style="margin-right: 5px;">Minutes Late: </b>{{ train.minutesLate }}</mat-list-item>
 						<mat-list-item><button mat-raised-button (click)="openScheduleDialog(train)">View Schedule</button></mat-list-item>
 					</mat-list>
 				</mat-panel-description>
