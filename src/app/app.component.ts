@@ -107,9 +107,14 @@ export class AppComponent implements OnInit {
 		@Inject(StationDetailsService) private stationDetailsService: StationDetailsService,
 		public dialog: MatDialog) {}
 
-	ngOnInit() {
-		this.trains = this.trainService.getTrains();
-		this.stations = this.stationService.getStations();
+	async ngOnInit() {
+		Promise.all([
+			this.trainService.getTrains(),
+			this.stationService.getStations()
+		]).then(values => {
+			this.trains = values[0];
+			this.stations = values[1];
+		});
 	}
 
 	openScheduleDialog(train: Train) {

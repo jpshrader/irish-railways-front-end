@@ -23,7 +23,7 @@
 			<mat-icon matTooltip="Trains">directions_transit</mat-icon>
 		</ng-template>
 
-		<div *ngIf="!trains.isLoaded" class="loading-state">
+		<div *ngIf="!trains || !trains.isLoaded" class="loading-state">
 			<mat-spinner
 				mode="indeterminate"
 				color="primary"
@@ -32,14 +32,14 @@
 			</mat-spinner>
 		</div>
 
-		<div *ngIf="trains.isLoaded && (!trains.resources || trains.resources.length === 0)">
+		<div *ngIf="trains && trains.isLoaded && (!trains.resources || trains.resources.length === 0)">
 			<div class="empty-train-state">
 				<mat-icon style="font-size: 150px; height:150px; width:150px">sentiment_very_dissatisfied</mat-icon>
 				<p class="mat-h1" style="margin-bottom: 0px; padding-bottom: 1%">There are no trains running at the moment</p>
 			</div>
 		</div>
 
-		<mat-accordion *ngIf="trains.resources && trains.resources.length > 0" class="train-accordion">
+		<mat-accordion *ngIf="trains && trains.resources && trains.resources.length > 0" class="train-accordion">
 			<mat-expansion-panel *ngFor='let train of trains.resources'>
 				<mat-expansion-panel-header>
 					<mat-panel-title>
@@ -71,7 +71,7 @@
 					<mat-icon matTooltip="Stations">store</mat-icon>
 			</ng-template>
 
-			<div *ngIf="!stations.isLoaded" class="loading-state">
+			<div *ngIf="!stations || !stations.isLoaded" class="loading-state">
 				<mat-spinner
 					mode="indeterminate"
 					color="primary"
@@ -80,14 +80,14 @@
 				</mat-spinner>
 			</div>
 
-			<div *ngIf="stations.isLoaded && (!stations.resources || stations.resources.length === 0)">
+			<div *ngIf="stations && stations.isLoaded && (!stations.resources || stations.resources.length === 0)">
 				<div class="empty-train-state">
 					<mat-icon style="font-size: 150px; height:150px; width:150px">sentiment_very_dissatisfied</mat-icon>
 					<p class="mat-h1" style="margin-bottom: 0px; padding-bottom: 1%">There are no stations available at the moment</p>
 				</div>
 			</div>
 
-			<mat-accordion *ngIf="stations.resources && stations.resources.length > 0" class="train-accordion">
+			<mat-accordion *ngIf="stations && stations.resources && stations.resources.length > 0" class="train-accordion">
 				<mat-expansion-panel *ngFor='let station of stations.resources'>
 					<mat-expansion-panel-header>
 						<mat-panel-title>
