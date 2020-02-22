@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>{{ componentData.station.name }} Schedule</h2>
+<h2 mat-dialog-title>{{ componentData.station.name }} Schedule ({{ componentData.station.code }})</h2>
 <mat-dialog-content class="mat-typography">
 	<div *ngIf="stationDetails && !stationDetails.isLoaded" class="loading-state">
 		<mat-spinner
@@ -26,7 +26,8 @@
 					<mat-list-item><b style="margin-right: 5px;">Arriving: </b>{{ detail.destinationTime }}</mat-list-item>
 					<mat-list-item><b style="margin-right: 5px;">Origin: </b>{{ detail.origin }}</mat-list-item>
 					<mat-list-item><b style="margin-right: 5px;">Destination: </b>{{ detail.destination }}</mat-list-item>
-					<mat-list-item><b style="margin-right: 5px;">Late (minutes): </b>{{ detail.late }}</mat-list-item>
+					<mat-list-item><b style="margin-right: 5px;">Train Code: </b>{{ detail.trainCode}}</mat-list-item>
+					<mat-list-item *ngIf="detail.late !== 0"><b style="margin-right: 5px;">Late (minutes): </b>{{ detail.late }}</mat-list-item>
 				</mat-list>
 			</mat-panel-description>
 		</mat-expansion-panel>
