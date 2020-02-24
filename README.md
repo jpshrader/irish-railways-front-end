@@ -3,6 +3,9 @@
 # Irish Railways Angular Front End
 An angular application for viewing information on the current state of the Irish railway system. This will be consuming the [backend api](https://github.com/jpshrader/irish-railways-api).
 
+Future Enhancements:
+ * Fix list-item title sizing issues on mobile.
+ * Add text boxes to allow filtering on train/station lists.
 
 Note: This is very much a work in progress.
 
