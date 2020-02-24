@@ -7,8 +7,6 @@ Future Enhancements:
  * Fix list-item title sizing issues on mobile.
  * Add text boxes to allow filtering on train/station lists.
 
-Note: This is very much a work in progress.
-
 ## Development server
 
 Run `yarn start` for a dev server. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the source files.
