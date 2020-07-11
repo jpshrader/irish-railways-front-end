@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent, TrainScheduleDialogComponent, StationDetailsComponent } from './app.component';
+import { AppComponent } from './app.component';
+import { StationDetailsComponent } from './stationDetails/stationDetails.component';
+import { TrainScheduleDialogComponent } from './trainSchedule/trainScheduleDialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TrainService } from './services/trains/trainService';
 import { ApiClient } from './services/common/apiClient';
