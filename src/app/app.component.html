@@ -43,9 +43,9 @@
 			<mat-expansion-panel *ngFor='let train of trains.resources'>
 				<mat-expansion-panel-header>
 					<mat-panel-title>
-						<span *ngIf="train.minutesLate == 0" matTooltip="On schedule"><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
-						<span *ngIf="train.minutesLate > 0" matTooltip="{{ train.minutesLate }} minutes late" style="color: #ffab40;" ><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
-						<span *ngIf="train.minutesLate < 0" matTooltip="{{ getAbsoluteValue(train.minutesLate) }} minutes early" style="color: #4caf50;"><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }}</b></span>
+						<span *ngIf="train.minutesLate == 0" matTooltip="On schedule"><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }} ({{ train.code }})</b></span>
+						<span *ngIf="train.minutesLate > 0" matTooltip="{{ train.minutesLate }} minutes late" style="color: #ffab40;" ><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }} ({{ train.code }})</b></span>
+						<span *ngIf="train.minutesLate < 0" matTooltip="{{ getAbsoluteValue(train.minutesLate) }} minutes early" style="color: #4caf50;"><b>{{ train.origin }} </b>&#8594; <b>{{ train.destination }} ({{ train.code }})</b></span>
 					</mat-panel-title>
 					<mat-panel-description>
 						<b>{{ train.message }}</b>
@@ -91,7 +91,7 @@
 				<mat-expansion-panel *ngFor='let station of stations.resources'>
 					<mat-expansion-panel-header>
 						<mat-panel-title>
-							<span><b>{{ station.name }}</b></span>
+							<span><b>{{ station.name }} ({{ station.code }})</b></span>
 						</mat-panel-title>
 					</mat-expansion-panel-header>
 					<mat-panel-description>

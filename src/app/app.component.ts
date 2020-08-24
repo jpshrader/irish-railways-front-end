@@ -44,8 +44,9 @@ export class AppComponent implements OnInit {
 				data: {
 					train,
 					trainMovementService: this.trainMovementService
+				}
 			}
-		});
+		);
 	}
 
 	openStationDialog(station: Station) {
