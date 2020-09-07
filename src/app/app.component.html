@@ -3,9 +3,11 @@
 	<p><a class="mat-subheading-1" href="https://youtu.be/xg4jjxCJyYM?t=33" target="_blank">https://youtu.be/xg4jjxCJyYM?t=33</a></p>
 
 	<div class="header-button-tray">
-		<a mat-raised-button matTooltip="Github Repo" color="primary" href="https://github.com/jpshrader/irish-railways-front-end" target="_blank">
-			<mat-icon>code</mat-icon>
-		</a>
+		<button mat-raised-button color="primary" [matMenuTriggerFor]="menu"><mat-icon>code</mat-icon></button>
+		<mat-menu #menu="matMenu">
+			<a mat-menu-item href="https://github.com/jpshrader/irish-railways-front-end" target="_blank">Front End</a>
+			<a mat-menu-item href="https://github.com/jpshrader/irish-railways-api" target="_blank">Back End</a>
+		</mat-menu>
 
 		<a mat-raised-button matTooltip="LinkedIn" href="https://www.linkedin.com/in/jackshrader/" target="_blank">
 			<mat-icon>work</mat-icon>

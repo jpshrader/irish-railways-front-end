@@ -10,6 +10,7 @@ import { TrainService } from './services/trains/trainService';
 import { ApiClient } from './services/common/apiClient';
 
 import { MatSliderModule } from '@angular/material/slider';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -52,7 +53,8 @@ import { StationDetailsService } from './services/stationDetails/stationDetailsS
 		MatDividerModule,
 		MatTableModule,
 		MatPaginatorModule,
-		MatDialogModule
+		MatDialogModule,
+		MatMenuModule
 	],
 	providers: [
 		ApiClient,
