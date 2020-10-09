@@ -1,10 +1,9 @@
 [![Build Status](https://dev.azure.com/johnshrader/irish-railways-front-end/_apis/build/status/jpshrader.irish-railways-front-end?branchName=master)](https://dev.azure.com/johnshrader/irish-railways-front-end/_build/latest?definitionId=2&branchName=master)
 
 # Irish Railways Angular Front End
-An angular application for viewing information on the current state of the Irish railway system. This will be consuming the [backend api](https://github.com/jpshrader/irish-railways-api).
+An angular application for viewing information on the current state of the Irish railway system. This app consumes the accompanying [backend api](https://github.com/jpshrader/irish-railways-api).
 
 Future Enhancements:
- * Fix list-item title sizing issues on mobile.
  * Add text boxes to allow filtering on train/station lists.
 
 ## Development server
