@@ -1,43 +1,55 @@
-.header-card {
-		text-align: center;
-		margin: 2%;
-}
-
 .header-button-tray {
-		margin-left: -2.5%;
+	margin-left: -2.5%;
 }
 
 .header-button-tray > a {
-		margin-left: 2%;
+	margin-left: 2%;
 }
 
 .mat-display-2 {
-		margin-bottom: 1%;
+	margin-bottom: 1%;
 }
 
 .tab-group {
-		margin: 2%;
+	margin: 2%;
 }
 
 .mat-tab-labels {
-		background: #FFFFFF;
+	background: #FFFFFF;
 }
 
 .empty-train-state {
-		background: #FFFFFF;
-		text-align: center;
+	background: #FFFFFF;
+	text-align: center;
 }
 
 .loading-state {
-		background: #FFFFFF;
-		padding: 2%;
+	background: #FFFFFF;
+	padding: 2%;
 }
 
 .tab-label {
-		text-align: center;
-		padding: 1%;
+	text-align: center;
+	padding: 1%;
 }
 
 .title-icon {
-		margin-top: -2px;
+	margin-top: -2px;
+}
+
+.info-tab {
+	background: #FFFFFF;
+	padding: 1%;
+}
+
+.info-tab-header {
+	text-align: center;
+}
+
+.info-tab-section-header {
+	margin-bottom: 0px;
+}
+
+.info-tab-content {
+	padding: 5%;
 }
