@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/johnshrader/irish-railways-front-end/_apis/build/status/jpshrader.irish-railways-front-end?branchName=master)](https://dev.azure.com/johnshrader/irish-railways-front-end/_build/latest?definitionId=2&branchName=master)
+[![Build Status](https://dev.azure.com/johnshrader/irish-railways-front-end/_apis/build/status/jpshrader.irish-railways-front-end?branchName=main)](https://dev.azure.com/johnshrader/irish-railways-front-end/_build/latest?definitionId=2&branchName=main)
 
 # Irish Railways Angular Front End
 An angular application for viewing information on the current state of the Irish railway system. This app consumes the accompanying [backend api](https://github.com/jpshrader/irish-railways-api).
