@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiClient } from '../common/apiClient';
-import { Train } from './Train';
+import { Train } from './train';
 import { GetApiBaseUrl } from '../common/apiConstants';
 import { ResourceList } from '../common/resourceList';
 
