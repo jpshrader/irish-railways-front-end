@@ -7,7 +7,7 @@ import { ResourceList } from '../common/resourceList';
 @Injectable()
 export class TrainService {
 	constructor(private apiClient: ApiClient) { }
-	trainsUrl = `${GetApiBaseUrl()}/trains/`;
+	trainsUrl = `${GetApiBaseUrl()}/trains`;
 
 	getTrains(): ResourceList<Train> {
 		return this.apiClient.getResourceList<Train>(this.trainsUrl);
