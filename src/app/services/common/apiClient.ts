@@ -14,10 +14,10 @@ export class ApiClient {
 	getResource<T>(url: string): T {
 		let result: T;
 		this.http.get<T>(url, { headers: this.requestHeaders })
-			.subscribe(
-				response => result = response,
-				error => console.log(error)
-			);
+			.subscribe({
+				next: (response: any) => result = response,
+				error: (error: any) => console.log(error)
+			});
 
 		return result;
 	}
@@ -25,17 +25,17 @@ export class ApiClient {
 	getResourceList<T>(url: string): ResourceList<T> {
 		const result: ResourceList<T> = new ResourceList<T>();
 		this.http.get<ResourceList<T>>(url, { headers: this.requestHeaders })
-			.subscribe(
-				response => {
+			.subscribe({
+				next: (response: any) => {
 					result.resources = response.resources;
 					result.links = response.links;
 				},
-				error => {
+				error: (error: any) => {
 					result.isLoaded = true;
 					console.log(error);
 				},
-				() => result.isLoaded = true
-			);
+				complete: () => result.isLoaded = true
+			});
 
 		return result;
 	}
