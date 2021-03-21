@@ -22,6 +22,12 @@ Run `yarn build` to build the project. The build artifacts will be stored in the
 
 Run `yarn test` to execute the unit tests via [Jest](https://jestjs.io/en/).
 
+## Deploying to Production
+
+Modify the `IS_DEV` to `false` in [apiConstants.ts](https://github.com/jpshrader/irish-railways-front-end/blob/main/src/app/services/common/apiConstants.ts) and build the project with the following:
+
+`yarn build --deploy-url ./railways/ --prod`
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
