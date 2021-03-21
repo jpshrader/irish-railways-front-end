@@ -21,7 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TrainMovementService } from './services/trainMovements/trainMovementService';
 import { StationService } from './services/stations/stationService';
