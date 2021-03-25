@@ -1,10 +1,12 @@
-[![Build Status](https://dev.azure.com/johnshrader/irish-railways-front-end/_apis/build/status/jpshrader.irish-railways-front-end?branchName=main)](https://dev.azure.com/johnshrader/irish-railways-front-end/_build/latest?definitionId=2&branchName=main)
-
 # Irish Railways Angular Front End
+
 An angular application for viewing information on the current state of the Irish railway system. This app consumes the accompanying [backend api](https://github.com/jpshrader/irish-railways-api).
 
+[![Build Status](https://dev.azure.com/johnshrader/irish-railways-front-end/_apis/build/status/jpshrader.irish-railways-front-end?branchName=main)](https://dev.azure.com/johnshrader/irish-railways-front-end/_build/latest?definitionId=2&branchName=main)
+
 Future Enhancements:
- * Add text boxes to allow filtering on train/station lists.
+
+* Add text boxes to allow filtering on train/station lists.
 
 ## Development server
 
@@ -22,9 +24,9 @@ Run `yarn build` to build the project. The build artifacts will be stored in the
 
 Run `yarn test` to execute the unit tests via [Jest](https://jestjs.io/en/).
 
-## Deploying to Production
+## Building Production
 
-Modify the `IS_DEV` to `false` in [apiConstants.ts](https://github.com/jpshrader/irish-railways-front-end/blob/main/src/app/services/common/apiConstants.ts) and build the project with the following:
+Build the project with the following:
 
 `yarn build --deploy-url ./railways/ --prod`
 
